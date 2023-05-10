@@ -45,7 +45,7 @@
                 </div>
                 <div class="about-col-2">
                     <h1 class="about_me">About Me</h1>
-                    <p>Hi there! My name is Gudopwa Taragi and I'm a self-taught developer with over 6 months of experience.
+                    <p>Hi there! My name is Gudopwa Taragi and I'm a self-taught developer from Nigeria with over 6 months of experience.
                          I've always had a passion for technology and coding, and I decided to 
                         pursue my dream of becoming a developer through self-study and online resources.
                           <br>
@@ -174,24 +174,14 @@
                     <a href="https://api.whatsapp.com/send?phone=2347026973893&text=Hello!"><i class="bi bi-whatsapp"></i></a>
                     <a href=""><i class="bi bi-twitter"></i></a>
                 </div>
-                <a href="images/CV UPdate.pdf" download class="btn btn2">Download</a>
+                <a href="images/CV UPdate.pdf" download class="btn btn2">Download <i class="bi bi-download"></i></a>
             </div>
             <div class="contact-right">
-                <form action="https://formsubmit.co/gteee27@gmail.com" method="POST">
-                    <!--Honeypot-->
-                    <input type="text" name="_honey" style="display: none;">
-
-                    <!--disable captcha-->
-
-                    <input type="hidden" name="_captcha" value="false">
-
-                    
-
-
+                <form action="sendmail.php" method="POST">
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email"required>
                     <textarea name="Message" id="" placeholder="Your Message" rows="6"></textarea>
-                    <button type="submit" class="btn btn2">Submit</button>
+                    <button type="submit" class="btn btn2">Submit <i class="bi bi-send"></i></button>
                 </form>
             </div>
         </div>
@@ -202,7 +192,7 @@
     </div>
 </div>
 
-       <!--javascrict toggle manu-->
+      
        <script>
         var navlinks = document.getElementById("navlinks");
         function showmenu(){
@@ -228,6 +218,10 @@
             }
 
         </script>
+
+ <!--javascrict email-->
+
+
     
 </body>
 </html>
