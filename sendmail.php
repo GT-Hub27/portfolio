@@ -6,10 +6,10 @@ $message = $_POST['message'];
 
 
 
-$mailheader = "From" .$name. "<" .$email. ">\r\n";
+$mailheader = "From:" .$name. "<" .$email. ">\r\n";
 
 
-$recipient = "gteee27@gmail.com"
+$recipient = "gteee27@gmail.com";
 
 
 mail($recipient, $message, $mailheader)
