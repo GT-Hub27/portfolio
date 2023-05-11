@@ -475,6 +475,9 @@ form .btn2{
 .back a:hover{
     color: rgba(201, 46, 46, 0.884);
 }
+.thankyou-text{
+    text-align: center;
+}
 
 
 
