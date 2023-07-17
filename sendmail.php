@@ -1,37 +1,37 @@
 <?php
-$name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-$message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+ 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $name = htmlspecislchars($_POST['Name']);
+  $email = htmlspecialchars ($_POST['email']);
+  $message = htmlspecialchars ($_POST['Message']);
 
-$mailheader = "From: " .$name. " <" .$email. ">\r\n";
+  // Validate the form data
+  if (empty($name) || empty($email) || empty($message)) {
+    echo "Please fill in all fields.";
+    exit;
+  }
 
-$recipient = "gteee27@gmail.com";
+  // Set the recipient email address
+  $recipient = "gteee27@gmail.com"; // Replace with your actual email address
 
-$subject = "New message from contact form";
+  // Set the email subject
 
-if(mail($recipient, $subject, $message, $mailheader)){
-    echo '
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>My Portolio</title>
-            <link rel="stylesheet" href="style.css">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
-            <script src="https://kit.fontawesome.com/6119e771b9.js" crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        </head>
-        <body>
-            <div class="thankyou-text">
-                <h1>Thank you for contacting me. I will get back to you as soon as possible.</h1>
-                <p class="back">Go back: <a href="index.html">HOMEPAGE</a></p>
-            </div>
-        </body>
-        </html>
-    ';
-} else {
-    echo "Error sending email";
+  // Set the email headers
+  $headers = "From: $name <$email>" . "\r\n";
+  $headers .= "Reply-To: $email" . "\r\n";
+  $headers .= "Content-Type: text/plain; charset=UTF-8" . "\r\n";
+
+  // Compose the email body
+  $body = "Name: $name\n";
+  $body .= "Email: $email\n\n";
+  $body .= "Message:\n$message";
+
+  // Send the email
+  if (mail($recipient, $message, $headers)) {
+    echo "Email sent successfully!";
+  } else {
+    echo "Failed to send email.";
+  }
 }
 ?>
+
